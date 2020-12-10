@@ -72,6 +72,12 @@ window.addEventListener("load", () => {
           document.getElementById("copilotStatus").innerText = `${copilotNameInput.value}`;
           if(fuelLevelInput.value < 10000){
              faultyList.style.visibility = "visible";
+             if(cargoMassInput.value > 10000){
+               document.getElementById("cargoStatus").innerText = "Too much mass for shuttle to take off";
+             }
+             else{
+               document.getElementById("cargoStatus").innerText = "Cargo mass low enough for launch.";
+             }
              document.getElementById("fuelStatus").innerText = "Not enough fuel for the journey.";
              document.getElementById("launchStatus").innerText = "Shuttle not ready for launch";
              document.getElementById("launchStatus").style.color = "red";
@@ -79,6 +85,12 @@ window.addEventListener("load", () => {
           }
           else if(cargoMassInput.value > 10000){
              faultyList.style.visibility = "visible";
+             if(fuelLevelInput.value < 10000){
+               document.getElementById("fuelStatus").innerText = "Not enough fuel for the journey.";
+             }
+             else{
+               document.getElementById("fuelStatus").innerText = "Fuel level high enough for launch";
+             }
              document.getElementById("cargoStatus").innerText = "Too much mass for shuttle to take off";
              document.getElementById("launchStatus").innerText = "Shuttle not ready for launch";
              document.getElementById("launchStatus").style.color = "red";
